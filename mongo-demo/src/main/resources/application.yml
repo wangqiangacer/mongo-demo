@@ -1,0 +1,6 @@
+spring:
+  data:
+    mongodb:
+      host: 49.232.173.109
+      authentication-database: config
+      port: 27017
