@@ -1,6 +1,9 @@
 package com.jacken.springbootdemo.controller;
 
+
+import com.jacken.springbootdemo.aop.annos.LimitTime;
 import com.jacken.springbootdemo.exception.BaseException;
+import com.jacken.springbootdemo.result.ResultModel;
 import com.jacken.springbootdemo.service.AsyncTask;
 import com.jacken.springbootdemo.service.IndexService;
 import com.jacken.springbootdemo.service.SyncTask;
@@ -48,8 +51,10 @@ public class IndexController {
 
     }
     @RequestMapping("/index")
-    public  String index(){
-        return  indexService.getUserName();
+    @LimitTime
+    public  ResultModel<Object> index(){
+        //return  indexService.getUserName();
+        return ResultModel.createSuccess("方法执行");
     }
 
     @PostMapping("/home")
